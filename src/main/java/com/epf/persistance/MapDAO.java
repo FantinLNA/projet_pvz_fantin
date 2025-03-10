@@ -1,9 +1,8 @@
-package com.epf;
-import org.springframework.jdbc.core.JdbcTemplate;
+package com.epf.persistance;
+import com.epf.Model.Maps;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class MapDAO extends DAO {

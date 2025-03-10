@@ -1,39 +1,31 @@
 package com.epf.persistance;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @Configuration
+@ComponentScan(basePackages = "com.epf")
 public class dbconfig {
-    private static final Logger logger = LoggerFactory.getLogger(dbconfig.class);
 
     @Bean
-    public DataSource dataSource() {
-        MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser("epf");
+    public DataSource initdataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/pvz");
+        dataSource.setUsername("epf");
         dataSource.setPassword("mot_de_passe");
-        dataSource.setServerName("localhost");
-        dataSource.setPortNumber(3306); // Port MySQL par défaut
-        dataSource.setDatabaseName("pvz");
-
-        try {
-            dataSource.getConnection().close();
-            logger.info("Database connection test successful");
-        } catch (SQLException e) {
-            logger.error("Failed to connect to database: {}", e.getMessage());
-        }
 
         return dataSource;
     }
 
     @Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-        return new JdbcTemplate(dataSource);
+    public JdbcTemplate initjdbcTemplate() {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(initdataSource());
+        return jdbcTemplate;
     }
+}
