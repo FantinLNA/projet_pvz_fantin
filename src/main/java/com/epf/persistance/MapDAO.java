@@ -1,11 +1,11 @@
 package com.epf.persistance;
-import com.epf.Model.Maps;
+import com.epf.core.Model.Maps;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class MapDAO extends DAO {
+public class MapDAO extends DAO implements interfaceMapDAO {
     public List<Maps> getAllMaps() {
         List<Maps> maps;
         maps = jdbcTemplate.query("SELECT * FROM map", (rs, rowNum) ->
@@ -21,9 +21,31 @@ public class MapDAO extends DAO {
         );
     }
 
-    public Maps getMapByZombieNom(String zombieNom) {
-        // À implémenter : jointure sur la table zombie et map
-        return new Maps(); // temporaire
+    @Override
+    public void addMap(Maps map) {
+        jdbcTemplate.update("INSERT INTO map(ligne, colonne, chemin_image) VALUES (?, ?, ?)",
+                map.getLigne(),
+                map.getColonne(),
+                map.getChemin_image()
+        );
     }
+
+    @Override
+    public void updateMap(Maps map, int id) {
+        jdbcTemplate.update("UPDATE map SET ligne = ?, colonne = ?, chemin_image = ? WHERE id_map = ?",
+                map.getLigne(),
+                map.getColonne(),
+                map.getChemin_image(),
+                id
+        );
+    }
+
+    @Override
+    public void deleteMap(int id) {
+        jdbcTemplate.update("DELETE FROM map WHERE id_map = ?",
+                id
+        );
+    }
+
 }
 

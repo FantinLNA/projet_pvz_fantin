@@ -1,4 +1,4 @@
-package com.epf.Model;
+package com.epf.core.Model;
 
 public class Maps {
     private int ligne;
