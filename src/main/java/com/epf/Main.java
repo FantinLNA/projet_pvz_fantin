@@ -1,6 +1,6 @@
 package com.epf;
 
-import com.epf.persistance.dbconfig;
+import com.epf.config.dbconfig;
 import com.epf.core.Model.Zombies;
 import com.epf.core.Model.Plantes;
 import com.epf.core.Model.Maps;

@@ -19,6 +19,10 @@ public class Zombies {
         this.id_map = id_map;
     }
 
+    public Zombies() {
+
+    }
+
     public String getNom() {
         return nom;
     }
