@@ -58,7 +58,7 @@ public class ZombieDAO extends DAO implements interfaceZombieDAO{
     @Override
     public List<Zombies> getZombiesByMap(int id) {
         List<Zombies> zombies;
-        zombies = jdbcTemplate.query("SELECT * FROM zombie WHERE id_map = ?", (rs, rowNum) ->
+        zombies = jdbcTemplate.query("SELECT * FROM zombie WHERE id_map = ?",new Object[]{id}, (rs, rowNum) ->
                 new Zombies(rs.getString("nom"), rs.getInt("point_de_vie"), rs.getFloat("attaque_par_seconde"), rs.getInt("degat_attaque"), rs.getFloat("vitesse_de_deplacement"), rs.getString("chemin_image"), rs.getInt("id_map"))
         );
         return zombies;

@@ -19,19 +19,35 @@ public class Main {
 
         // 🔹 Test MapDAO
         MapDAO mapDAO = context.getBean(MapDAO.class);
+
+        System.out.println("\n--- ajout map ---");
+        Maps newMap = new Maps();
+        newMap.setLigne(7);
+        newMap.setColonne(5);
+        newMap.setChemin_image("chemin_test.png");
+
+        // System.out.println("\n➡ Ajout d'une nouvelle map...");
+        // mapDAO.addMap(newMap);
+
+
         System.out.println("\n--- Liste des maps ---");
         List<Maps> maps = mapDAO.getAllMaps();
         for (Maps map : maps) {
             System.out.println("ligne: " + map.getLigne() +
                     ", colonne: " + map.getColonne() +
                     ", chemin: " + map.getChemin_image());
+
         }
 
-        System.out.println("\n--- Map avec ID 1 ---");
-        Maps map1 = mapDAO.getMapByID(1);
+        System.out.println("\n--- Map avec ID 3 ---");
+        Maps map1 = mapDAO.getMapByID(3);
         System.out.println("ligne: " + map1.getLigne() +
                 ", colonne: " + map1.getColonne() +
                 ", chemin: " + map1.getChemin_image());
+
+        System.out.println("\n➡ Suppression de la map avec ID: 4" );
+        mapDAO.deleteMap(13);
+
 
         // 🔹 Test ZombieDAO
         ZombieDAO zombieDAO = context.getBean(ZombieDAO.class);
@@ -56,6 +72,18 @@ public class Main {
                 ", Vitesse_de_deplacement " + zombie1.getVitesse_de_deplacement() +
                 ", Chemin_image : " + zombie1.getChemin_image() +
                 ", Id_map : " + zombie1.getId_map());
+
+        System.out.println("\n--- Liste des zombies de la maps id 1---");
+        List<Zombies> zombiesmap1 = zombieDAO.getZombiesByMap(1);
+        for (Zombies zombie : zombiesmap1) {
+            System.out.println("Nom : " + zombie.getNom() +
+                    ", Point_de_vie" + zombie.getPoint_de_vie() +
+                    ", Attaque_par_seconde" + zombie.getAttaque_par_seconde() +
+                    ", Degat_attaque " + zombie.getDegat_attaque() +
+                    ", Vitesse_de_deplacement " + zombie.getVitesse_de_deplacement() +
+                    ", Chemin_image : " + zombie.getChemin_image() +
+                    ", Id_map : " + zombie.getId_map());
+        }
 
         // 🔹 Test PlanteDAO
         PlanteDAO planteDAO = context.getBean(PlanteDAO.class);
