@@ -1,11 +1,17 @@
 package com.epf.core.service;
 
+import com.epf.DTO.MapDTO;
+import com.epf.DTO.Mapmapper;
 import com.epf.core.Model.Maps;
 import com.epf.persistance.MapDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MapService implements interfaceMapService {
@@ -17,23 +23,43 @@ public class MapService implements interfaceMapService {
     }
 
     @Override
-    public List<Maps> getAllMaps() {
-        return mapDAO.getAllMaps();
+    public List<MapDTO> getAllMaps() {
+        return mapDAO.getAllMaps().stream().map(Mapmapper::toMapDTO).collect(Collectors.toList());
     }
 
     @Override
-    public Maps getMapByID(int id) {
-        return mapDAO.getMapByID(id);
+    public Optional<MapDTO> getMapByID(int id) {
+        Maps map = mapDAO.getMapByID(id);
+        if (map == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Map non trouvée");
+        }
+        return Optional.of(Mapmapper.toMapDTO(map));
     }
 
     @Override
-    public void addMap(Maps map) {
-        mapDAO.addMap(map);
+    public MapDTO addMap(MapDTO dto) {
+        Maps map = Mapmapper.toMapEntity(dto);
+        Maps savedMap = mapDAO.addMap(map);
+        return Mapmapper.toMapDTO(savedMap);
     }
 
     @Override
-    public void updateMap(Maps map, int id) {
-        mapDAO.updateMap(map, id);
+    public MapDTO updateMap(MapDTO dto, int id) {
+        Maps existingMap = mapDAO.getMapByID(id);
+
+        if (existingMap == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Map non trouvée");
+        }
+
+        // Met à jour les champs
+        existingMap.setLigne(dto.getLigne());
+        existingMap.setColonne(dto.getColonne());
+        existingMap.setChemin_image(dto.getChemin_image());
+
+
+        mapDAO.updateMap(existingMap, id);
+
+        return Mapmapper.toMapDTO(existingMap);
     }
 
     @Override

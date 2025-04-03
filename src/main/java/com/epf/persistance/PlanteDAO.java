@@ -25,7 +25,7 @@ public class PlanteDAO extends DAO implements interfacePlanteDAO {
     }
 
     @Override
-    public void addPlante(Plantes plante) {
+    public Plantes addPlante(Plantes plante) {
         jdbcTemplate.update("INSERT INTO plante(nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, effet, chemin_image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 plante.getNom(),
                 plante.getPoint_de_vie(),
@@ -36,11 +36,12 @@ public class PlanteDAO extends DAO implements interfacePlanteDAO {
                 plante.getEffet(),
                 plante.getChemin_image()
         );
+        return plante;
     }
 
     @Override
     public void updatePlante(Plantes plante, int id) {
-        jdbcTemplate.update("UPDATE plante plante SET nom = ?, point_de_vie = ?, attaque_par_seconde = ?, degat_attaque = ?, cout = ?, soleil_par_seconde = ?, effet = ?, chemin_image = ? WHERE id_plante = ?",
+        jdbcTemplate.update("UPDATE plante SET nom = ?, point_de_vie = ?, attaque_par_seconde = ?, degat_attaque = ?, cout = ?, soleil_par_seconde = ?, effet = ?, chemin_image = ? WHERE id_plante = ?",
                 plante.getNom(),
                 plante.getPoint_de_vie(),
                 plante.getAttaque_par_seconde(),

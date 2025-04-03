@@ -14,6 +14,7 @@ public class ZombieDAO extends DAO implements interfaceZombieDAO{
         return zombies;
     }
 
+    @Override
     public Zombies getZombieById(int id) {
         return jdbcTemplate.queryForObject("SELECT * FROM zombie WHERE id_zombie = ?",
                 new Object[]{id},
@@ -22,7 +23,7 @@ public class ZombieDAO extends DAO implements interfaceZombieDAO{
     }
 
     @Override
-    public void addZombie(Zombies zombie) {
+    public Zombies addZombie(Zombies zombie) {
         jdbcTemplate.update("INSERT INTO zombie(nom, point_de_vie, attaque_par_seconde, degat_attaque, vitesse_de_deplacement, chemin_image, id_map) VALUES (?, ?, ?, ?, ?, ?, ?)",
                 zombie.getNom(),
                 zombie.getPoint_de_vie(),
@@ -32,6 +33,7 @@ public class ZombieDAO extends DAO implements interfaceZombieDAO{
                 zombie.getChemin_image(),
                 zombie.getId_map()
         );
+        return zombie;
     }
 
     @Override

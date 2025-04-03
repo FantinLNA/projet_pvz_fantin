@@ -1,13 +1,15 @@
 package com.epf.core.service;
 
+import com.epf.DTO.MapDTO;
 import com.epf.core.Model.Maps;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface interfaceMapService {
-    List<Maps> getAllMaps();
-    Maps getMapByID(int id);
-    void addMap(Maps map);
-    void updateMap(Maps map, int id);
+    List<MapDTO> getAllMaps();
+    Optional<MapDTO> getMapByID(int id);
+    MapDTO addMap(MapDTO dto);
+    MapDTO updateMap(MapDTO dto, int id);
     void deleteMap(int id);
 }

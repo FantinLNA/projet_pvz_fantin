@@ -22,12 +22,13 @@ public class MapDAO extends DAO implements interfaceMapDAO {
     }
 
     @Override
-    public void addMap(Maps map) {
+    public Maps addMap(Maps map) {
         jdbcTemplate.update("INSERT INTO map(ligne, colonne, chemin_image) VALUES (?, ?, ?)",
                 map.getLigne(),
                 map.getColonne(),
                 map.getChemin_image()
         );
+        return map;
     }
 
     @Override
