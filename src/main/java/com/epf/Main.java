@@ -4,9 +4,9 @@ import com.epf.config.dbconfig;
 import com.epf.core.Model.Zombies;
 import com.epf.core.Model.Plantes;
 import com.epf.core.Model.Maps;
-import com.epf.persistance.ZombieDAO;
-import com.epf.persistance.PlanteDAO;
-import com.epf.persistance.MapDAO;
+import com.epf.infra.persistance.ZombieDAO;
+import com.epf.infra.persistance.PlanteDAO;
+import com.epf.infra.persistance.MapDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;

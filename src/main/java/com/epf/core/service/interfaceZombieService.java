@@ -1,7 +1,6 @@
 package com.epf.core.service;
 
-import com.epf.DTO.ZombieDTO;
-import com.epf.core.Model.Zombies;
+import com.epf.api.DTO.ZombieDTO;
 
 import java.util.List;
 import java.util.Optional;

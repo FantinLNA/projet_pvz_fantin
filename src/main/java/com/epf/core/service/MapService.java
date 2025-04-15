@@ -1,9 +1,9 @@
 package com.epf.core.service;
 
-import com.epf.DTO.MapDTO;
-import com.epf.DTO.Mapmapper;
+import com.epf.api.DTO.MapDTO;
+import com.epf.api.DTO.Mapmapper;
 import com.epf.core.Model.Maps;
-import com.epf.persistance.MapDAO;
+import com.epf.infra.persistance.MapDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,6 @@
 package com.epf.core.service;
 
-import com.epf.DTO.MapDTO;
-import com.epf.core.Model.Maps;
+import com.epf.api.DTO.MapDTO;
 
 import java.util.List;
 import java.util.Optional;

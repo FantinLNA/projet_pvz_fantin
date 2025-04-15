@@ -1,16 +1,18 @@
 package com.epf.core.Model;
 
 public class Plantes {
+    private Integer idPlante;
     private String nom;
-    private int point_de_vie;
-    private float attaque_par_seconde;
-    private int degat_attaque;
-    private int cout;
-    private float soleil_par_seconde;
+    private Integer point_de_vie;
+    private Double attaque_par_seconde;
+    private Integer degat_attaque;
+    private Integer cout;
+    private Double soleil_par_seconde;
     private String effet;
     private String chemin_image;
 
-    public Plantes(String nom, int point_de_vie, float attaque_par_seconde, int degat_attaque, int cout, float soleil_par_seconde, String effet, String chemin_image) {
+    public Plantes(Integer idPlante,String nom, Integer point_de_vie, Double attaque_par_seconde, Integer degat_attaque, Integer cout, Double soleil_par_seconde, String effet, String chemin_image) {
+        this.idPlante = idPlante;
         this.nom = nom;
         this.point_de_vie = point_de_vie;
         this.attaque_par_seconde = attaque_par_seconde;
@@ -25,6 +27,14 @@ public class Plantes {
 
     }
 
+    public Integer getIdPlante() {
+        return idPlante;
+    }
+
+    public void setIdPlante(Integer idPlante) {
+        this.idPlante = idPlante;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -33,43 +43,43 @@ public class Plantes {
         this.nom = nom;
     }
 
-    public int getPoint_de_vie() {
+    public Integer getPoint_de_vie() {
         return point_de_vie;
     }
 
-    public void setPoint_de_vie(int point_de_vie) {
+    public void setPoint_de_vie(Integer point_de_vie) {
         this.point_de_vie = point_de_vie;
     }
 
-    public float getAttaque_par_seconde() {
+    public Double getAttaque_par_seconde() {
         return attaque_par_seconde;
     }
 
-    public void setAttaque_par_seconde(float attaque_par_seconde) {
+    public void setAttaque_par_seconde(Double attaque_par_seconde) {
         this.attaque_par_seconde = attaque_par_seconde;
     }
 
-    public int getDegat_attaque() {
+    public Integer getDegat_attaque() {
         return degat_attaque;
     }
 
-    public void setDegat_attaque(int degat_attaque) {
+    public void setDegat_attaque(Integer degat_attaque) {
         this.degat_attaque = degat_attaque;
     }
 
-    public int getCout() {
+    public Integer getCout() {
         return cout;
     }
 
-    public void setCout(int cout) {
+    public void setCout(Integer cout) {
         this.cout = cout;
     }
 
-    public float getSoleil_par_seconde() {
+    public Double getSoleil_par_seconde() {
         return soleil_par_seconde;
     }
 
-    public void setSoleil_par_seconde(float soleil_par_seconde) {
+    public void setSoleil_par_seconde(Double soleil_par_seconde) {
         this.soleil_par_seconde = soleil_par_seconde;
     }
 
@@ -87,10 +97,6 @@ public class Plantes {
 
     public void setChemin_image(String chemin_image) {
         this.chemin_image = chemin_image;
-    }
-
-    public void afficher() {
-        System.out.println("Nom : " + nom + "\nPoint_de_vie : " + point_de_vie + "\nAttaque_par_seconde : " + attaque_par_seconde + "\nDegat_attaque : " + degat_attaque + "\nCout : " + cout + "\nSoleil_par_seconde : " + soleil_par_seconde + "\nEffet : " + effet + "\nChemin_image : " + chemin_image);
     }
 
 }

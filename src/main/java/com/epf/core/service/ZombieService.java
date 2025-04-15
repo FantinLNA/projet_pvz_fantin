@@ -1,9 +1,9 @@
 package com.epf.core.service;
 
-import com.epf.DTO.ZombieDTO;
-import com.epf.DTO.Zombiemapper;
+import com.epf.api.DTO.ZombieDTO;
+import com.epf.api.DTO.Zombiemapper;
 import com.epf.core.Model.Zombies;
-import com.epf.persistance.ZombieDAO;
+import com.epf.infra.persistance.ZombieDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

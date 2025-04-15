@@ -1,17 +1,17 @@
 package com.epf.core.service;
 
-import com.epf.DTO.PlanteDTO;
+import com.epf.api.DTO.PlanteDTO;
 import com.epf.core.Model.Plantes;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface interfacePlanteService {
-    List<PlanteDTO> getAllPlantes();
-    Optional<PlanteDTO> getPlanteById(int id);
+    List<Plantes> getAllPlantes();
+    Plantes getPlanteById(int id);
 
-    PlanteDTO addPlante(PlanteDTO dto);
+    Plantes addPlante(Plantes plante);
 
-    PlanteDTO updatePlante(PlanteDTO dto, int id);
+    Plantes updatePlante(Plantes plantes, int id);
     void deletePlante(int id);
 }
