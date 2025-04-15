@@ -5,8 +5,11 @@
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/DTO/ZombieDTO.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/DTO/Zombiemapper.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/Main.java
+/Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/config/WebAppInitializer.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/config/dbconfig.java
+/Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/controller/MapController.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/controller/PlanteController.java
+/Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/controller/ZombieController.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/core/Model/Maps.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/core/Model/Plantes.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/core/Model/Zombies.java

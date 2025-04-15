@@ -3,6 +3,8 @@ com/epf/persistance/MapDAO.class
 com/epf/DTO/PlanteDTO.class
 com/epf/DTO/Zombiemapper.class
 com/epf/core/service/ZombieService.class
+com/epf/controller/MapController.class
+com/epf/controller/ZombieController.class
 com/epf/core/service/interfaceMapService.class
 com/epf/core/service/interfacePlanteService.class
 com/epf/persistance/interfaceMapDAO.class
@@ -15,6 +17,7 @@ com/epf/core/service/interfaceZombieService.class
 com/epf/persistance/DAO.class
 com/epf/config/dbconfig.class
 com/epf/core/Model/Zombies.class
+com/epf/config/WebAppInitializer.class
 com/epf/persistance/interfaceZombieDAO.class
 com/epf/DTO/Plantemapper.class
 com/epf/Main.class
