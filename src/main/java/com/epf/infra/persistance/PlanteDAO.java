@@ -18,7 +18,7 @@ public class PlanteDAO extends DAO implements interfacePlanteDAO {
 
     @Override
     public Plantes getPlanteById(int id) {
-        String sql = "SELECT * FROM plantes WHERE id_plante = ?";
+        String sql = "SELECT id_plante, nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, effet, chemin_image FROM Plante WHERE id_plante = ?";
         List<Plantes> plantes = jdbcTemplate.query(sql, new PlanteRowMapper(), id);
         return plantes.isEmpty() ? null : plantes.get(0);
     }
@@ -42,7 +42,7 @@ public class PlanteDAO extends DAO implements interfacePlanteDAO {
 
     @Override
     public Plantes addPlante(Plantes plante) {
-        jdbcTemplate.update("INSERT INTO plante(nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, effet, chemin_image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Plante(nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, effet, chemin_image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 plante.getNom(),
                 plante.getPoint_de_vie(),
                 plante.getAttaque_par_seconde(),

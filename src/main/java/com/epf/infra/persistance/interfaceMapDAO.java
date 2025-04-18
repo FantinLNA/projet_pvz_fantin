@@ -8,6 +8,6 @@ public interface interfaceMapDAO {
     List<Maps> getAllMaps();
     Maps getMapByID(int id);
     Maps addMap(Maps map);
-    void updateMap(Maps map, int id);
+    Maps updateMap(Maps map, int id);
     void deleteMap(int id);
 }

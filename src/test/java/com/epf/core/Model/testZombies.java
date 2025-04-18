@@ -8,13 +8,14 @@ public class testZombies {
 
     @Test
     public void should_create_zombie_with_constructor() {
-        Zombies zombie = new Zombies("zombie du futur", 200, 0.75f, 9, 0.45f, "futurzombie.png", 1);
+        Zombies zombie = new Zombies(100, "zombie du futur", 200, 0.75, 9, 0.45, "futurzombie.png", 1);
 
+        assertEquals(100, zombie.getIdZombie());
         assertEquals("zombie du futur", zombie.getNom());
         assertEquals(200, zombie.getPoint_de_vie());
-        assertEquals(0.75f, zombie.getAttaque_par_seconde());
+        assertEquals(0.75, zombie.getAttaque_par_seconde());
         assertEquals(9, zombie.getDegat_attaque());
-        assertEquals(0.45f, zombie.getVitesse_de_deplacement());
+        assertEquals(0.45, zombie.getVitesse_de_deplacement());
         assertEquals("futurzombie.png", zombie.getChemin_image());
         assertEquals(1, zombie.getId_map());
 
@@ -26,17 +27,17 @@ public class testZombies {
 
         zombie.setNom("zombie du futur");
         zombie.setPoint_de_vie(200);
-        zombie.setAttaque_par_seconde(0.75f);
+        zombie.setAttaque_par_seconde(0.75);
         zombie.setDegat_attaque(9);
-        zombie.setVitesse_de_deplacement(0.45f);
+        zombie.setVitesse_de_deplacement(0.45);
         zombie.setChemin_image("futurzombie.png");
         zombie.setId_map(1);
 
         assertEquals("zombie du futur", zombie.getNom());
         assertEquals(200, zombie.getPoint_de_vie());
-        assertEquals(0.75f, zombie.getAttaque_par_seconde());
+        assertEquals(0.75, zombie.getAttaque_par_seconde());
         assertEquals(9, zombie.getDegat_attaque());
-        assertEquals(0.45f, zombie.getVitesse_de_deplacement());
+        assertEquals(0.45, zombie.getVitesse_de_deplacement());
         assertEquals("futurzombie.png", zombie.getChemin_image());
         assertEquals(1, zombie.getId_map());
     }

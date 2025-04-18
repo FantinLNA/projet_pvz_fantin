@@ -1,15 +1,17 @@
 package com.epf.core.Model;
 
 public class Zombies {
+    private Integer idZombie;
     private String nom;
-    private int point_de_vie;
-    private float attaque_par_seconde;
-    private int degat_attaque;
-    private float vitesse_de_deplacement;
+    private Integer point_de_vie;
+    private Double attaque_par_seconde;
+    private Integer degat_attaque;
+    private Double vitesse_de_deplacement;
     private String chemin_image;
-    private int id_map;
+    private Integer id_map;
 
-    public Zombies(String nom, int point_de_vie, float attaque_par_seconde, int degat_attaque, float vitesse_de_deplacement, String chemin_image, int id_map) {
+    public Zombies(Integer idZombie, String nom, Integer point_de_vie, Double attaque_par_seconde, Integer degat_attaque, Double vitesse_de_deplacement, String chemin_image, Integer id_map) {
+        this.idZombie = idZombie;
         this.nom = nom;
         this.point_de_vie = point_de_vie;
         this.attaque_par_seconde = attaque_par_seconde;
@@ -23,6 +25,14 @@ public class Zombies {
 
     }
 
+    public Integer getIdZombie() {
+        return idZombie;
+    }
+
+    public void setIdZombie(Integer idZombie) {
+        this.idZombie = idZombie;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -31,35 +41,35 @@ public class Zombies {
         this.nom = nom;
     }
 
-    public int getPoint_de_vie() {
+    public Integer getPoint_de_vie() {
         return point_de_vie;
     }
 
-    public void setPoint_de_vie(int point_de_vie) {
+    public void setPoint_de_vie(Integer point_de_vie) {
         this.point_de_vie = point_de_vie;
     }
 
-    public float getAttaque_par_seconde() {
+    public Double getAttaque_par_seconde() {
         return attaque_par_seconde;
     }
 
-    public void setAttaque_par_seconde(float attaque_par_seconde) {
+    public void setAttaque_par_seconde(Double attaque_par_seconde) {
         this.attaque_par_seconde = attaque_par_seconde;
     }
 
-    public int getDegat_attaque() {
+    public Integer getDegat_attaque() {
         return degat_attaque;
     }
 
-    public void setDegat_attaque(int degat_attaque) {
+    public void setDegat_attaque(Integer degat_attaque) {
         this.degat_attaque = degat_attaque;
     }
 
-    public float getVitesse_de_deplacement() {
+    public Double getVitesse_de_deplacement() {
         return vitesse_de_deplacement;
     }
 
-    public void setVitesse_de_deplacement(float vitesse_de_deplacement) {
+    public void setVitesse_de_deplacement(Double vitesse_de_deplacement) {
         this.vitesse_de_deplacement = vitesse_de_deplacement;
     }
 
@@ -71,16 +81,13 @@ public class Zombies {
         this.chemin_image = chemin_image;
     }
 
-    public int getId_map() {
+    public Integer getId_map() {
         return id_map;
     }
 
-    public void setId_map(int id_map) {
+    public void setId_map(Integer id_map) {
         this.id_map = id_map;
     }
 
-    public void afficher() {
-        System.out.println("Nom : " + nom + "\nPoint_de_vie" + point_de_vie + "\nAttaque_par_seconde" + attaque_par_seconde + "\nDegat_attaque " + degat_attaque + "\nVitesse_de_deplacement " + vitesse_de_deplacement + "\nChemin_image : " + chemin_image + "\nId_map : " + id_map);
-    }
 }
 

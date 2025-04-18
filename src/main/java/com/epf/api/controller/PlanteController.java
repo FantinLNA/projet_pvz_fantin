@@ -28,51 +28,53 @@ public class PlanteController {
         this.plantemapper = plantemapper;
     }
 
-    // ✅ 1. Endpoint pour valider les données
-//    @PostMapping("/validation")
-//    public ResponseEntity<String> validatePlante(@Valid @RequestBody PlanteDTO planteDTO) {
-//        return ResponseEntity.ok("Données valides !");
-//    }
-
     // ✅ 2. Récupérer toutes les plantes
     @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<PlanteDTO> getAllPlantes() {
+    public ResponseEntity<List<PlanteDTO>> getAllPlantes() {
         List<Plantes> plantes = planteService.getAllPlantes();
         List<PlanteDTO> planteDTOS = plantemapper.ToListPlanteDTO(plantes);
-        return planteDTOS;
+        return ResponseEntity.ok(planteDTOS);
     }
 
     // ✅ 3. Récupérer une plante par ID
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Optional<PlanteDTO>> getPlanteById(@PathVariable int id) {
-//        Optional<PlanteDTO> planteDTO = planteService.getPlanteById(id);
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<PlanteDTO> getPlanteById(@PathVariable("id") int id) {
+        Plantes plante = planteService.getPlanteById(id);
 
-//        if (planteDTO == null) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Plante non trouvée");
-//        }
+        if (plante == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Plante non trouvée");
+        }
 
-//        return ResponseEntity.ok(planteDTO);
-//    }
+        PlanteDTO planteDTO = plantemapper.toPlanteDTO(plante);
+
+        return ResponseEntity.ok(planteDTO);
+    }
 
     // ✅ 4. Créer une nouvelle plante
-//    @PostMapping
-//    public ResponseEntity<PlanteDTO> createPlante(@RequestBody PlanteDTO planteDTO) {
-//        PlanteDTO newPlante = planteService.addPlante(planteDTO);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(newPlante);
-//    }
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PlanteDTO> createPlante(@RequestBody PlanteDTO planteDTO) {
+        Plantes plante = plantemapper.toPlanteEntity(planteDTO);
+        Plantes newPlante = planteService.addPlante(plante);
+        PlanteDTO newPlanteDTO = plantemapper.toPlanteDTO(newPlante);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newPlanteDTO);
+    }
 
     // ✅ 5. Modifier une plante existante
-//    @PutMapping("/{id}")
-//    public ResponseEntity updatePlante(@RequestBody PlanteDTO planteDTO ,@PathVariable int id) {
-//        return ResponseEntity.ok(planteService.updatePlante(planteDTO, id));
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<PlanteDTO> updatePlante(@PathVariable("id") int id, @RequestBody PlanteDTO planteDTO ) {
+        Plantes plante = plantemapper.toPlanteEntity(planteDTO);
+        Plantes updatedPlante = planteService.updatePlante(plante,id);
+        PlanteDTO updatedPlanteDTO = plantemapper.toPlanteDTO(updatedPlante);
+        return ResponseEntity.ok(updatedPlanteDTO);
+    }
 
     // ✅ 6. Supprimer une plante
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<String> deletePlante(@PathVariable int id) {
-//        planteService.deletePlante(id);
-//        return ResponseEntity.ok("Plante supprimée avec succès !");
-//    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePlante(@PathVariable("id") int id) {
+        planteService.deletePlante(id);
+        return ResponseEntity.ok("Plante supprimée avec succès !");
+    }
 
 }

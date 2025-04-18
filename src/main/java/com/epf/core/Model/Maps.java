@@ -1,11 +1,13 @@
 package com.epf.core.Model;
 
 public class Maps {
-    private int ligne;
-    private int colonne;
+    private Integer idMap;
+    private Integer ligne;
+    private Integer colonne;
     private String chemin_image;
 
-    public Maps(int ligne, int colonne, String chemin_image) {
+    public Maps(Integer idMap, Integer ligne, Integer colonne, String chemin_image) {
+        this.idMap = idMap;
         this.ligne = ligne;
         this.colonne = colonne;
         this.chemin_image = chemin_image;
@@ -15,11 +17,19 @@ public class Maps {
 
     }
 
-    public int getLigne() {
+    public Integer getIdMap() {
+        return idMap;
+    }
+
+    public void setIdMap(Integer idMap) {
+        this.idMap = idMap;
+    }
+
+    public Integer getLigne() {
         return ligne;
     }
 
-    public int getColonne() {
+    public Integer getColonne() {
         return colonne;
     }
 
@@ -27,11 +37,11 @@ public class Maps {
         return chemin_image;
     }
 
-    public void setLigne(int ligne) {
+    public void setLigne(Integer ligne) {
         this.ligne = ligne;
     }
 
-    public void setColonne(int colonne) {
+    public void setColonne(Integer colonne) {
         this.colonne = colonne;
     }
 
@@ -39,7 +49,4 @@ public class Maps {
         this.chemin_image = chemin_image;
     }
 
-    public void afficher() {
-        System.out.println("ligne = " + ligne + "\n colonne = " + colonne + "\n chemin_image = " + chemin_image);
-    }
 }

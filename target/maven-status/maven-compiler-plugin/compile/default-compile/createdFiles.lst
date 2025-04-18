@@ -15,9 +15,11 @@ com/epf/infra/persistance/PlanteDAO$PlanteRowMapper.class
 com/epf/api/DTO/MapDTO.class
 com/epf/core/Model/Zombies.class
 com/epf/config/WebAppInitializer.class
+com/epf/infra/persistance/MapDAO$MapRowMapper.class
 com/epf/api/controller/MapController.class
 com/epf/api/DTO/PlanteDTO.class
 com/epf/Main.class
+com/epf/infra/persistance/ZombieDAO$ZombieRowMapper.class
 com/epf/api/DTO/ZombieDTO.class
 com/epf/infra/persistance/ZombieDAO.class
 com/epf/infra/persistance/DAO.class

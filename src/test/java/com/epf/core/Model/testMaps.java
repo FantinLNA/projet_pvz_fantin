@@ -8,8 +8,9 @@ public class testMaps {
 
     @Test
     public void should_create_Map_with_constructor() {
-        Maps map = new Maps(7, 5, "gazon.png");
+        Maps map = new Maps(100,7, 5, "gazon.png");
 
+        assertEquals(100, map.getIdMap());
         assertEquals(7, map.getLigne());
         assertEquals(5, map.getColonne());
         assertEquals("gazon.png", map.getChemin_image());

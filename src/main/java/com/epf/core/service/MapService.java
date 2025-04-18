@@ -23,43 +23,31 @@ public class MapService implements interfaceMapService {
     }
 
     @Override
-    public List<MapDTO> getAllMaps() {
-        return mapDAO.getAllMaps().stream().map(Mapmapper::toMapDTO).collect(Collectors.toList());
+    public List<Maps> getAllMaps() {
+        List<Maps> maps = mapDAO.getAllMaps();
+        return maps;
     }
 
     @Override
-    public Optional<MapDTO> getMapByID(int id) {
+    public Maps getMapByID(int id) {
         Maps map = mapDAO.getMapByID(id);
-        if (map == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Map non trouvée");
-        }
-        return Optional.of(Mapmapper.toMapDTO(map));
+        return map;
     }
 
     @Override
-    public MapDTO addMap(MapDTO dto) {
-        Maps map = Mapmapper.toMapEntity(dto);
-        Maps savedMap = mapDAO.addMap(map);
-        return Mapmapper.toMapDTO(savedMap);
+    public Maps addMap(Maps map) {
+        return mapDAO.addMap(map);
     }
 
     @Override
-    public MapDTO updateMap(MapDTO dto, int id) {
+    public Maps updateMap(Maps map, int id) {
         Maps existingMap = mapDAO.getMapByID(id);
 
         if (existingMap == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Map non trouvée");
         }
 
-        // Met à jour les champs
-        existingMap.setLigne(dto.getLigne());
-        existingMap.setColonne(dto.getColonne());
-        existingMap.setChemin_image(dto.getChemin_image());
-
-
-        mapDAO.updateMap(existingMap, id);
-
-        return Mapmapper.toMapDTO(existingMap);
+        return mapDAO.updateMap(map, id);
     }
 
     @Override

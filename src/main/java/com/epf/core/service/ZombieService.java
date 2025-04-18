@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ZombieService implements interfaceZombieService {
+
     private final ZombieDAO zombieDAO;
 
     @Autowired
@@ -23,46 +24,30 @@ public class ZombieService implements interfaceZombieService {
     }
 
     @Override
-    public List<ZombieDTO> getAllZombies() {
-        return zombieDAO.getAllZombies().stream().map(Zombiemapper::toZombieDTO).collect(Collectors.toList());
+    public List<Zombies> getAllZombies() {
+        List<Zombies> zombies = zombieDAO.getAllZombies();
+        return zombies;
     }
 
     @Override
-    public Optional<ZombieDTO> getZombieById(int id) {
-        Zombies zombie = zombieDAO.getZombieById(id);
-        if (zombie == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Zombie non trouvée");
-        }
-        return Optional.of(Zombiemapper.toZombieDTO(zombie));
+    public Zombies getZombieById(int id) {
+        return zombieDAO.getZombieById(id);
     }
 
     @Override
-    public ZombieDTO addZombie(ZombieDTO dto) {
-        Zombies zombie = Zombiemapper.toZombieEntity(dto);
-        Zombies savedZombie = zombieDAO.addZombie(zombie);
-        return Zombiemapper.toZombieDTO(savedZombie);
+    public Zombies addZombie(Zombies zombie) {
+        return zombieDAO.addZombie(zombie);
     }
 
     @Override
-    public ZombieDTO updateZombie(ZombieDTO dto, int id) {
+    public Zombies updateZombie(Zombies zombie, int id) {
         Zombies existingZombie = zombieDAO.getZombieById(id);
 
         if (existingZombie == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "zombie non trouvée");
         }
 
-        // Met à jour les champs
-        existingZombie.setNom(dto.getNom());
-        existingZombie.setPoint_de_vie(dto.getPoint_de_vie());
-        existingZombie.setDegat_attaque(dto.getDegat_attaque());
-        existingZombie.setAttaque_par_seconde(dto.getAttaque_par_seconde());
-        existingZombie.setVitesse_de_deplacement(dto.getVitesse_de_deplacement());
-        existingZombie.setChemin_image(dto.getChemin_image());
-        existingZombie.setId_map(dto.getId_map());
-
-        zombieDAO.updateZombie(existingZombie, id);
-
-        return Zombiemapper.toZombieDTO(existingZombie);
+        return zombieDAO.updateZombie(zombie, id);
     }
 
     @Override

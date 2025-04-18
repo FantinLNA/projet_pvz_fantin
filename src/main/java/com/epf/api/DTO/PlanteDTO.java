@@ -23,6 +23,10 @@ public class PlanteDTO {
         this.chemin_image = cheminImage;
     }
 
+    public PlanteDTO() {
+
+    }
+
     public Integer getIdPlante() {
         return idPlante;
     }
