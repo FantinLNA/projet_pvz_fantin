@@ -1,7 +1,7 @@
 package com.epf.api.DTO;
 
 public class ZombieDTO {
-    private Integer idZombie;
+    private Integer id_zombie;
     private String nom;
     private Integer point_de_vie;
     private Double attaque_par_seconde;
@@ -11,7 +11,7 @@ public class ZombieDTO {
     private Integer id_map;
 
     public ZombieDTO(Integer idZombie, String nom, Integer point_de_vie, Double attaque_par_seconde, Integer degat_attaque, Double vitesse_de_deplacement, String chemin_image, Integer id_map) {
-        this.idZombie = idZombie;
+        this.id_zombie = idZombie;
         this.nom = nom;
         this.point_de_vie = point_de_vie;
         this.attaque_par_seconde = attaque_par_seconde;
@@ -24,12 +24,12 @@ public class ZombieDTO {
     public ZombieDTO() {
     }
 
-    public Integer getIdZombie() {
-        return idZombie;
+    public Integer getId_zombie() {
+        return id_zombie;
     }
 
-    public void setIdZombie(Integer idZombie) {
-        this.idZombie = idZombie;
+    public void setId_zombie(Integer id_zombie) {
+        this.id_zombie = id_zombie;
     }
 
     public String getNom() {

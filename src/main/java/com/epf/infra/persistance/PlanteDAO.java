@@ -27,7 +27,7 @@ public class PlanteDAO extends DAO implements interfacePlanteDAO {
         @Override
         public Plantes mapRow(ResultSet rs, int rowNum) throws SQLException {
             Plantes plante = new Plantes();
-            plante.setIdPlante(rs.getInt("id_plante"));
+            plante.setId_plante(rs.getInt("id_plante"));
             plante.setNom(rs.getString("nom"));
             plante.setPoint_de_vie(rs.getInt("point_de_vie"));
             plante.setAttaque_par_seconde(rs.getDouble("attaque_par_seconde"));

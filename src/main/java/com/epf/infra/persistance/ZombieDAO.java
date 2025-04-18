@@ -69,7 +69,7 @@ public class ZombieDAO extends DAO implements interfaceZombieDAO{
 
     @Override
     public void deleteZombie(int id) {
-        jdbcTemplate.update("DELETE FROM Zombie WHERE id_zombie = ?",
+        jdbcTemplate.update("DELETE Zombie FROM Zombie WHERE id_zombie = ?",
                 id
         );
     }
@@ -78,6 +78,12 @@ public class ZombieDAO extends DAO implements interfaceZombieDAO{
     public List<Zombies> getZombiesByMap(int id) {
         String sql = "SELECT id_zombie, nom, point_de_vie, attaque_par_seconde, degat_attaque, vitesse_de_deplacement, chemin_image, id_map FROM Zombie WHERE id_map = ?";
         return jdbcTemplate.query(sql, new Object[]{id}, new ZombieRowMapper());
+    }
+
+    @Override
+    public void updateZombiesByMapId(int idMap) {
+        String sql = "UPDATE Zombie SET id_map = NULL WHERE id_map = ?";
+        jdbcTemplate.update(sql, idMap);
     }
 
 }

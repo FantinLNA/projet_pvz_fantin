@@ -1,7 +1,7 @@
 package com.epf.core.Model;
 
 public class Plantes {
-    private Integer idPlante;
+    private Integer id_plante;
     private String nom;
     private Integer point_de_vie;
     private Double attaque_par_seconde;
@@ -12,7 +12,7 @@ public class Plantes {
     private String chemin_image;
 
     public Plantes(Integer idPlante,String nom, Integer point_de_vie, Double attaque_par_seconde, Integer degat_attaque, Integer cout, Double soleil_par_seconde, String effet, String chemin_image) {
-        this.idPlante = idPlante;
+        this.id_plante = idPlante;
         this.nom = nom;
         this.point_de_vie = point_de_vie;
         this.attaque_par_seconde = attaque_par_seconde;
@@ -27,12 +27,12 @@ public class Plantes {
 
     }
 
-    public Integer getIdPlante() {
-        return idPlante;
+    public Integer getId_plante() {
+        return id_plante;
     }
 
-    public void setIdPlante(Integer idPlante) {
-        this.idPlante = idPlante;
+    public void setId_plante(Integer id_plante) {
+        this.id_plante = id_plante;
     }
 
     public String getNom() {

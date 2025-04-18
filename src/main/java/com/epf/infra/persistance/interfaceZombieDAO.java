@@ -11,4 +11,5 @@ public interface interfaceZombieDAO {
     Zombies updateZombie(Zombies zombie, int id);
     void deleteZombie(int id);
     List<Zombies> getZombiesByMap(int id);
+    void updateZombiesByMapId(int idMap);
 }

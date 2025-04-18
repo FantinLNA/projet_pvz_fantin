@@ -59,7 +59,7 @@ public class MapDAO extends DAO implements interfaceMapDAO {
 
     @Override
     public void deleteMap(int id) {
-        jdbcTemplate.update("DELETE FROM Map WHERE id_map = ?", id);
+        jdbcTemplate.update("DELETE FROM map WHERE id_map = ?", id);
     }
 
 }

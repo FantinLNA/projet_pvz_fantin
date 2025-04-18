@@ -10,7 +10,7 @@ public class testPlantes {
     public void should_create_plante_with_constructor() {
         Plantes plante = new Plantes(100,"Tournesol", 100, 0.0, 0, 50, 25.0, "produit du soleil", "tournesol.png");
 
-        assertEquals(100, plante.getIdPlante());
+        assertEquals(100, plante.getId_plante());
         assertEquals("Tournesol", plante.getNom());
         assertEquals(100, plante.getPoint_de_vie());
         assertEquals(0.0, plante.getAttaque_par_seconde());

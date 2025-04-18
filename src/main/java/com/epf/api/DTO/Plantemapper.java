@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Plantemapper {
     public PlanteDTO toPlanteDTO(Plantes plante) {
         return new PlanteDTO(
-                plante.getIdPlante(),
+                plante.getId_plante(),
                 plante.getNom(),
                 plante.getPoint_de_vie(),
                 plante.getAttaque_par_seconde(),
@@ -28,7 +28,7 @@ public class Plantemapper {
 
     public Plantes toPlanteEntity(PlanteDTO dto) {
         return new Plantes(
-                dto.getIdPlante(),
+                dto.getId_plante(),
                 dto.getNom(),
                 dto.getPoint_de_vie(),
                 dto.getAttaque_par_seconde(),

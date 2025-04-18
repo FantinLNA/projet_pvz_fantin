@@ -23,7 +23,7 @@ public class Mapmapper {
 
     public Maps toMapEntity(MapDTO mapDTO) {
         return new Maps(
-                mapDTO.getIdMap(),
+                mapDTO.getId_map(),
                 mapDTO.getLigne(),
                 mapDTO.getColonne(),
                 mapDTO.getChemin_image()

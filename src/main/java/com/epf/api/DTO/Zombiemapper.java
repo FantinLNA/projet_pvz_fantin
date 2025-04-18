@@ -28,7 +28,7 @@ public class Zombiemapper {
 
     public Zombies toZombieEntity(ZombieDTO zombieDTO) {
         return new Zombies(
-                zombieDTO.getIdZombie(),
+                zombieDTO.getId_zombie(),
                 zombieDTO.getNom(),
                 zombieDTO.getPoint_de_vie(),
                 zombieDTO.getAttaque_par_seconde(),

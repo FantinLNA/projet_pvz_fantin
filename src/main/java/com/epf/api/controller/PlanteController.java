@@ -63,12 +63,17 @@ public class PlanteController {
 
     // ✅ 5. Modifier une plante existante
     @PutMapping("/{id}")
-    public ResponseEntity<PlanteDTO> updatePlante(@PathVariable("id") int id, @RequestBody PlanteDTO planteDTO ) {
+    public ResponseEntity<PlanteDTO> updatePlante(@PathVariable("id") int id, @RequestBody PlanteDTO planteDTO) {
         Plantes plante = plantemapper.toPlanteEntity(planteDTO);
-        Plantes updatedPlante = planteService.updatePlante(plante,id);
+        plante.setId_plante(id); // très important
+        if (plante.getPoint_de_vie() == null) {
+            plante.setPoint_de_vie(10);
+        }
+        Plantes updatedPlante = planteService.updatePlante(plante, id);
         PlanteDTO updatedPlanteDTO = plantemapper.toPlanteDTO(updatedPlante);
         return ResponseEntity.ok(updatedPlanteDTO);
     }
+
 
     // ✅ 6. Supprimer une plante
     @DeleteMapping("/{id}")

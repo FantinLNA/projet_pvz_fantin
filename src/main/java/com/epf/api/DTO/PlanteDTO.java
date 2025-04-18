@@ -1,7 +1,7 @@
 package com.epf.api.DTO;
 
 public class PlanteDTO {
-    private Integer idPlante;
+    private Integer id_plante;
     private String nom;
     private Integer point_de_vie;
     private Double attaque_par_seconde;
@@ -12,7 +12,7 @@ public class PlanteDTO {
     private String chemin_image;
 
     public PlanteDTO(Integer idPlante,String nom, Integer pointDeVie, Double attaqueParSeconde, Integer degatAttaque, Integer cout, Double soleilParSeconde, String effet, String cheminImage) {
-        this.idPlante = idPlante;
+        this.id_plante = idPlante;
         this.nom = nom;
         this.point_de_vie = pointDeVie;
         this.attaque_par_seconde = attaqueParSeconde;
@@ -27,11 +27,11 @@ public class PlanteDTO {
 
     }
 
-    public Integer getIdPlante() {
-        return idPlante;
+    public Integer getId_plante() {
+        return id_plante;
     }
 
-    public void setIdPlante(Integer idPlante) {}
+    public void setId_plante(Integer id_plante) {}
 
     public String getNom() {
         return nom;
