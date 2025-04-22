@@ -26,7 +26,7 @@ public class ZombieController {
         this.zombiemapper = new Zombiemapper();
     }
 
-    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     @ResponseBody
     public  ResponseEntity<List<ZombieDTO>> getAllZombies() {
         List<Zombies> zombies = zombieService.getAllZombies();
@@ -34,7 +34,7 @@ public class ZombieController {
         return ResponseEntity.ok(zombieDTOS);
     }
 
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}")
     @ResponseBody
     public ResponseEntity<ZombieDTO> getZombie(@PathVariable("id") int id) {
         Zombies zombie = zombieService.getZombieById(id);
@@ -48,7 +48,7 @@ public class ZombieController {
         return ResponseEntity.ok(zombieDTO);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public ResponseEntity<ZombieDTO> createZombie(@RequestBody ZombieDTO zombieDTO) {
         Zombies zombie = zombiemapper.toZombieEntity(zombieDTO);
         Zombies newzombie = zombieService.addZombie(zombie);

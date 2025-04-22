@@ -26,7 +26,7 @@ public class MapController {
         this.mapmapper = new Mapmapper();
     }
 
-    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<MapDTO>> getAllMaps() {
         List<Maps> maps = mapService.getAllMaps();
@@ -34,7 +34,7 @@ public class MapController {
         return ResponseEntity.ok(mapDTOs);
     }
 
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}")
     @ResponseBody
     public ResponseEntity<MapDTO> getMapById(@PathVariable("id") int id) {
         Maps map = mapService.getMapByID(id);
@@ -48,7 +48,7 @@ public class MapController {
         return ResponseEntity.ok(mapDTO);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public ResponseEntity<MapDTO> createMap(@RequestBody MapDTO mapDTO) {
         Maps map = mapmapper.toMapEntity(mapDTO);
         Maps newMap = mapService.addMap(map);

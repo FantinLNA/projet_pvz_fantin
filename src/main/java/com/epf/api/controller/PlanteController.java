@@ -29,7 +29,7 @@ public class PlanteController {
     }
 
     // ✅ 2. Récupérer toutes les plantes
-    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<PlanteDTO>> getAllPlantes() {
         List<Plantes> plantes = planteService.getAllPlantes();
@@ -38,7 +38,7 @@ public class PlanteController {
     }
 
     // ✅ 3. Récupérer une plante par ID
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}")
     @ResponseBody
     public ResponseEntity<PlanteDTO> getPlanteById(@PathVariable("id") int id) {
         Plantes plante = planteService.getPlanteById(id);
@@ -53,7 +53,7 @@ public class PlanteController {
     }
 
     // ✅ 4. Créer une nouvelle plante
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public ResponseEntity<PlanteDTO> createPlante(@RequestBody PlanteDTO planteDTO) {
         Plantes plante = plantemapper.toPlanteEntity(planteDTO);
         Plantes newPlante = planteService.addPlante(plante);

@@ -198,15 +198,15 @@ export default function EndpointsPage(): JSX.Element {
           break
         case "POST":
           if (endpoint.path === "/plantes") {
-            response = await createPlant({ nom: "Nouvelle plante", point_de_vie: 100, attaque_par_seconde: 1.5, degat_attaque: 20, cout: 50, soleil_par_seconde: 5.0, effet: "normal", chemin_image: "/images/plantes/default.png" })
+            response = await createPlant({ nom: "Nouvelle plante", point_de_vie: 100, attaque_par_seconde: 1.5, degat_attaque: 20, cout: 50, soleil_par_seconde: 5.0, effet: "normal", chemin_image: "/images/plante/default.png" })
             validationResult = { valid: true, message: "Plante créée avec succès" }
           }
           if (endpoint.path === "/zombies") {
-            response = await createZombie({ nom: "Nouveau zombie", point_de_vie: 150, attaque_par_seconde: 1.0, degat_attaque: 15, vitesse_de_deplacement: 1.5, chemin_image: "/images/zombies/default.png", id_map: 1 })
+            response = await createZombie({ nom: "Nouveau zombie", point_de_vie: 150, attaque_par_seconde: 1.0, degat_attaque: 15, vitesse_de_deplacement: 1.5, chemin_image: "/images/zombie/default.png", id_map: 1 })
             validationResult = { valid: true, message: "Zombie créé avec succès" }
           }
           if (endpoint.path === "/maps") {
-            response = await createMap({ ligne: 5, colonne: 9, chemin_image: "/images/maps/default.png" })
+            response = await createMap({ ligne: 5, colonne: 9, chemin_image: "/images/map/gazon.png" })
             validationResult = { valid: true, message: "Map créée avec succès" }
           }
           break

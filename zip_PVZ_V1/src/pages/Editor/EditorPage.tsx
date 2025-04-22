@@ -51,7 +51,7 @@ export default function EditorPage() {
     cout: 50,
     soleil_par_seconde: 5.0,
     effet: PlanteEffet.Normal,
-    chemin_image: "/images/plantes/default.png"
+    chemin_image: "/images/plante/default.png"
   };
 
   const defaultZombie: Omit<Zombie, 'id_zombie'> = {
@@ -60,13 +60,13 @@ export default function EditorPage() {
     attaque_par_seconde: 0.5,
     degat_attaque: 15,
     vitesse_de_deplacement: 1.0,
-    chemin_image: "/images/zombies/default.png"
+    chemin_image: "/images/zombie/default.png"
   };
 
   const defaultMap: Omit<GameMap, 'id_map'> = {
     ligne: 5,
     colonne: 9,
-    chemin_image: "/images/maps/default.png"
+    chemin_image: "/images/map/gazon.png"
   };
 
   const loadData = async () => {
