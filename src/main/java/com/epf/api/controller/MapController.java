@@ -2,6 +2,8 @@ package com.epf.api.controller;
 
 import com.epf.api.DTO.MapDTO;
 import com.epf.api.DTO.Mapmapper;
+import com.epf.api.DTO.Plantemapper;
+import com.epf.api.validator.MapValidation;
 import com.epf.core.Model.Maps;
 import com.epf.core.service.MapService;
 import org.springframework.http.HttpStatus;
@@ -20,10 +22,12 @@ public class MapController {
 
     private final MapService mapService;
     private final Mapmapper mapmapper;
+    private final MapValidation mapValidation;
 
-    public MapController(MapService mapService) {
+    public MapController(MapService mapService, Mapmapper mapmapper, MapValidation mapValidation) {
         this.mapService = mapService;
-        this.mapmapper = new Mapmapper();
+        this.mapmapper = mapmapper;
+        this.mapValidation = mapValidation;
     }
 
     @GetMapping
@@ -50,6 +54,7 @@ public class MapController {
 
     @PostMapping
     public ResponseEntity<MapDTO> createMap(@RequestBody MapDTO mapDTO) {
+        mapValidation.MapValidation(mapDTO);
         Maps map = mapmapper.toMapEntity(mapDTO);
         Maps newMap = mapService.addMap(map);
         MapDTO newMapDTO = mapmapper.toMapDTO(newMap);
@@ -58,6 +63,7 @@ public class MapController {
 
     @PutMapping("/{id}")
     public ResponseEntity<MapDTO> updateMap(@PathVariable("id") int id, @RequestBody MapDTO mapDTO) {
+        mapValidation.MapValidation(mapDTO);
         Maps map = mapmapper.toMapEntity(mapDTO);
         Maps updatedMap = mapService.updateMap(map, id);
         MapDTO updatedMapDTO = mapmapper.toMapDTO(updatedMap);

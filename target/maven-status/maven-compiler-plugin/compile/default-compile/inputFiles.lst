@@ -9,6 +9,9 @@
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/api/controller/MapController.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/api/controller/PlanteController.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/api/controller/ZombieController.java
+/Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/api/validator/MapValidation.java
+/Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/api/validator/PlanteValidation.java
+/Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/api/validator/ZombieValidation.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/config/WebAppInitializer.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/config/WebMvcConfig.java
 /Users/fantinellena4/Documents/S2_4A_EPF/travaux_Java/projet_pvz/src/main/java/com/epf/config/dbconfig.java

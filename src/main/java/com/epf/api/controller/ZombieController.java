@@ -2,7 +2,9 @@ package com.epf.api.controller;
 
 import com.epf.api.DTO.ZombieDTO;
 import com.epf.api.DTO.Zombiemapper;
+import com.epf.api.validator.ZombieValidation;
 import com.epf.core.Model.Zombies;
+import com.epf.core.service.PlanteService;
 import com.epf.core.service.ZombieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,10 +22,12 @@ public class ZombieController {
 
     private final ZombieService zombieService;
     private final Zombiemapper zombiemapper;
+    private final ZombieValidation zombieValidation;
 
-    public ZombieController(ZombieService zombieService) {
+    public ZombieController(ZombieService zombieService, Zombiemapper zombiemapper, ZombieValidation zombieValidation) {
         this.zombieService = zombieService;
-        this.zombiemapper = new Zombiemapper();
+        this.zombiemapper = zombiemapper;
+        this.zombieValidation = zombieValidation;
     }
 
     @GetMapping
@@ -50,6 +54,7 @@ public class ZombieController {
 
     @PostMapping
     public ResponseEntity<ZombieDTO> createZombie(@RequestBody ZombieDTO zombieDTO) {
+        zombieValidation.ZombieValidation(zombieDTO);
         Zombies zombie = zombiemapper.toZombieEntity(zombieDTO);
         Zombies newzombie = zombieService.addZombie(zombie);
         ZombieDTO newzombieDTO = zombiemapper.toZombieDTO(newzombie);
@@ -58,6 +63,7 @@ public class ZombieController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ZombieDTO> updateZombie(@PathVariable("id") int id, @RequestBody ZombieDTO zombieDTO) {
+        zombieValidation.ZombieValidation(zombieDTO);
         Zombies zombie = zombiemapper.toZombieEntity(zombieDTO);
         Zombies updatedZombie = zombieService.updateZombie(zombie,id);
         ZombieDTO updatedZombieDTO = zombiemapper.toZombieDTO(updatedZombie);

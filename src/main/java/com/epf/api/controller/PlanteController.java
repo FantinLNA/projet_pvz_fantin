@@ -3,6 +3,7 @@ package com.epf.api.controller;
 
 import com.epf.api.DTO.PlanteDTO;
 import com.epf.api.DTO.Plantemapper;
+import com.epf.api.validator.PlanteValidation;
 import com.epf.core.Model.Plantes;
 import com.epf.core.service.PlanteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,13 @@ public class PlanteController {
 
     private final PlanteService planteService;
     private final Plantemapper plantemapper;
+    private final PlanteValidation planteValidation;
 
     @Autowired
-    public PlanteController(PlanteService planteService, Plantemapper plantemapper) {
+    public PlanteController(PlanteService planteService, Plantemapper plantemapper, PlanteValidation planteValidation) {
         this.planteService = planteService;
         this.plantemapper = plantemapper;
+        this.planteValidation = planteValidation;
     }
 
     // ✅ 2. Récupérer toutes les plantes
@@ -55,6 +58,7 @@ public class PlanteController {
     // ✅ 4. Créer une nouvelle plante
     @PostMapping
     public ResponseEntity<PlanteDTO> createPlante(@RequestBody PlanteDTO planteDTO) {
+        planteValidation.PlanteValidation(planteDTO);
         Plantes plante = plantemapper.toPlanteEntity(planteDTO);
         Plantes newPlante = planteService.addPlante(plante);
         PlanteDTO newPlanteDTO = plantemapper.toPlanteDTO(newPlante);
@@ -64,6 +68,7 @@ public class PlanteController {
     // ✅ 5. Modifier une plante existante
     @PutMapping("/{id}")
     public ResponseEntity<PlanteDTO> updatePlante(@PathVariable("id") int id, @RequestBody PlanteDTO planteDTO) {
+        planteValidation.PlanteValidation(planteDTO);
         Plantes plante = plantemapper.toPlanteEntity(planteDTO);
         plante.setId_plante(id); // très important
         if (plante.getPoint_de_vie() == null) {
